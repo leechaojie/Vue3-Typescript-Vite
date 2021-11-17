@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>vue2 修改响应式数据</title>
+    <script src="https://lib.baomitu.com/vue/2.6.12/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+		<h3 v-show="person.name">{{person.name}}</h3>
+		<h3>{{person.age}}</h3>
+		<h3 v-show="person.sex">{{person.sex}}</h3>
+		<h3>爱好</h3>
+		<ul>
+			<li v-for="(item, index) in person.hobby" :key="index">{{item}}</li>
+		</ul>
+		<button @click="addSex">添加性别</button>
+		<button @click="delateName">删除name</button>
+		<button @click="updateHobby">修改第一个爱好</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+			el: '#app',
+			data: {
+				person: {
+					name: '张三',
+					age: 18,
+					hobby: ['篮球', '足球', '排球']
+				}
+			},
+			methods: {
+				addSex() {
+					// 1 不能通过直接追加的方式添加属性，属性的的确添加了，但是页面不更新
+					// console.log('添加前', this.person.sex);
+					// this.person.sex = '男'
+					// console.log('添加后', this.person.sex);
+
+
+					// 2 必须使用 vue 暴露的 $set 方法才可以
+					this.$set(this.person, 'sex', '男')
+
+					// 3 也可以使用 Vue.set，但是工程内必须 import Vue from 'vue'
+					// Vue.set(this.person, 'sex', '男')
+				},
+
+				delateName() {
+					// 1 不能通过操作对象的方法删除对象的属性，属性虽然删除了，但是页面不更新
+					// console.log('删除前', this.person.name);
+					// delete this.person.name
+					// console.log('删除后', this.person.name);
+
+					// 2 必须使用 vue 暴露的 $delete 方法才可以
+					this.$delete(this.person, 'name')
+
+					// 3 也可以使用 Vue.delete，但是工程内必须 import Vue from 'vue'
+					// Vue.delete(this.person, 'name')
+
+				},
+
+				updateHobby() {
+					// this.person.hobby[0] = '足球'
+
+					this.$set(this.person.hobby, 0, '足球')
+
+					// this.person.hobby.splice(0, 1, '足球')
+
+					// Vue.set(this.person.hobby, 0, '足球')
+				}
+			},
+		})
+    </script>
+</body>
+
+</html>

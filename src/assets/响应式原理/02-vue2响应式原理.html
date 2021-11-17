@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<title>vue2 响应式原理</title>
+</head>
+
+<body>
+
+	<script>
+		const person = {
+			name: '张三',
+			age: 18,
+			hobby: ['篮球', '足球', '排球']
+		}
+
+		// 模拟 vue2 响应式
+		// 需要响应式的对象属性必须一个一个的写，可以使用 Object.keys() 方法获取对象的属性名，然后去循环遍历
+		const p = {}
+		Object.defineProperty(p, 'name', {
+			// 读取 name 时调用
+			get() {
+				return person.name
+			},
+
+			// 修改 name 时调用
+			set(value) {
+				console.log('修改了 name 属性');
+				person.name = value
+			}
+		})
+
+		Object.defineProperty(p, 'age', {
+			// 读取 name 时调用
+			get() {
+				return person.age
+			},
+
+			// 修改 name 时调用
+			set(value) {
+				console.log('修改了 age 属性');
+				person.age = value
+			}
+		})
+
+		// 可以在控制台执行修改 
+		// p.name = '李四'
+		// delete p.name // 返回 false 无法删除
+		// p.sex = 18 // p 上面添加了，但是没有对象的 get set
+	</script>
+</body>
+
+</html>

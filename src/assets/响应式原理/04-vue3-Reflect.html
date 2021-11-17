@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<meta charset="UTF-8">
+	<title>vue3 响应式原理-Reflect</title>
+	<!-- <script crossorigin="anonymous"
+		integrity="sha512-2ftG6Hks6q07Ca+h8f4WCFWQAZca6bm1klWMAFGev51hiusd6FFaRT+kFWcj1G2KjFgZrns1CuwR8eA4OA0zLw=="
+		src="https://lib.baomitu.com/vue/3.2.11/vue.cjs.min.js"></script> -->
+</head>
+
+<body>
+
+	<script>
+		const person = {
+			name: '张三',
+			age: 18,
+			hobby: ['篮球', '足球', '排球']
+		}
+
+		// Reflect 可以使用在 Proxy 中，可以获取到 Proxy 对象的属性值，也可以设置 Proxy 对象的属性值
+		// ECMAScript 的 Reflect 对象是一个对象，它提供了一系列的方法，用于获取、设置、删除、添加和更新 Proxy 对象的属性。
+		// Reflect.get(target, propertyKey, receiver)
+		// Reflect.set(target, propertyKey, value, receiver)
+		// Reflect.has(target, propertyKey)
+		// Reflect.defineProperty(target, propertyKey, attributes)
+		// Reflect.getOwnPropertyDescriptor(target, propertyKey)
+		// Reflect.getPrototypeOf(target)
+		// Reflect.setPrototypeOf(target, prototype)
+		// Reflect.isExtensible(target)
+		// Reflect.preventExtensions(target)
+		// Reflect.getOwnPropertyNames(target)
+		// Reflect.ownKeys(target)
+		// Reflect.apply(target, thisArg, args)
+		// Reflect.construct(target, args, newTarget)
+
+		const p = {}
+
+		// 1 这里假如重复了一次，就会报错，
+		// 在开发中，这种错误可能无法避免，必须使用 try catch 来捕获
+		// Object.defineProperty(p, 'name', {
+		// 	get() {
+		// 		return person.name
+		// 	}
+		// })		
+		// Object.defineProperty(p, 'name', {
+		// 	get() {
+		// 		return person.name
+		// 	}
+		// })	
+
+		// 2 如果使用 Reflect，则不会报错，
+		const x1 = Reflect.defineProperty(p, 'name', {
+			get() {
+				return person.name
+			}
+		})
+		const x2 = Reflect.defineProperty(p, 'name', {
+			get() {
+				return person.name
+			}
+		})
+		console.log(x1, x2); // true false
+
+		// 可以根据 x1 x2 的值来判断是否成功
+		if (x2) {
+			console.log('成功');
+		} else {
+			console.log('失败');
+		}
+
+		
+	</script>
+</body>
+
+</html>

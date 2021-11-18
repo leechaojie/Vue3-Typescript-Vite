@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import RefAndReavtive from './components/RefAndReavtive.vue'
 import Lifecycle from './components/Lifecycle.vue'
 import Setup from './components/Setup.vue'
 import Computed from './components/Computed.vue'
@@ -23,7 +23,7 @@ watch(isShow, (value: boolean) => {
 </script>
 
 <template>
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <RefAndReavtive msg="Ref 和 Reavtive 以及 shallowRef shallowReactive" />
   <br/>
   <button style="margin-top: 20px;" @click="isShow = !isShow">切换隐藏显示 Lifecycle</button>
   <Lifecycle  v-if="isShow" />

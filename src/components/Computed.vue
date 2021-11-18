@@ -13,9 +13,9 @@ const person = reactive({
 // console.log('%cfullName', 'color: blue', fullName.value);
 
 // 计算属性 在修改计算属性需求的时候
-const fullName = computed<T>({
+const fullName = computed<string>({
   get: () => `${person.firstName} ${person.lastName}`,
-  set: (value: T): void => {
+  set: (value: string): void => {
     const [firstName, LastName] = value.split(' ')
     person.firstName = firstName
     person.lastName = LastName

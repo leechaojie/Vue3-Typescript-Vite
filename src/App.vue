@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
-import Life from './components/Life.vue'
+import Lifecycle from './components/Lifecycle.vue'
 import Setup from './components/Setup.vue'
 import Computed from './components/Computed.vue'
 import Watch from './components/Watch.vue'
@@ -10,11 +11,20 @@ import WatchEffict from './components/watchEffect.vue'
 function testFn(value: string): void {
   console.log('test-emit', value)
 }
+
+const isShow = ref<boolean>(true)
+
+watch(isShow, (value: boolean) => {
+  console.log('watch-isShow', value)
+})
+
 </script>
 
 <template>
   <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
-  <life />
+  <br/>
+  <button style="margin-top: 20px;" @click="isShow = !isShow">切换隐藏显示 Lifecycle</button>
+  <Lifecycle  v-if="isShow" />
   <Setup @add="testFn" msg="测试props">
     <template v-slot:header>
       <div>slot-header</div>
@@ -27,4 +37,11 @@ function testFn(value: string): void {
   <Watch />
   <WatchEffict />
 </template>
+
+<style>
+  h1 {
+    padding-top: 20px;
+    border-top: 1px solid palevioletred;
+  }
+</style>
 

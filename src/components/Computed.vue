@@ -12,6 +12,10 @@ const person = reactive({
 // const fullName = computed(() => `${person.firstName} ${person.lastName}`)
 // console.log('%cfullName', 'color: blue', fullName.value);
 
+// 计算属性的特点
+// 1. 只有在计算属性的值发生变化的时候才会触发 getter 和 setter
+// 2. 计算属性会立即执行
+
 // 计算属性 在修改计算属性需求的时候
 const fullName = computed<string>({
   get: () => `${person.firstName} ${person.lastName}`,

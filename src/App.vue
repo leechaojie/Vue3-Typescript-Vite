@@ -6,6 +6,7 @@ import Setup from './components/Setup.vue'
 import Computed from './components/Computed.vue'
 import Watch from './components/Watch.vue'
 import WatchEffict from './components/watchEffect.vue'
+import Hooks from './components/Hooks.vue'
 
 // 测试接收到的 emit
 function testFn(value: string): void {
@@ -36,9 +37,13 @@ watch(isShow, (value: boolean) => {
   <Computed />
   <Watch />
   <WatchEffict />
+  <Hooks />
 </template>
 
 <style>
+body, html {
+  padding-bottom: 50px;
+}
   h1 {
     padding-top: 20px;
     border-top: 1px solid palevioletred;

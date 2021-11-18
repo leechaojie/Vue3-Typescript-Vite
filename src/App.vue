@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import RefAndReavtive from './components/RefAndReavtive.vue'
+import ShallowRefAndShallowReactive from './components/ShallowRefAndShallowReactive.vue'
 import Lifecycle from './components/Lifecycle.vue'
 import Setup from './components/Setup.vue'
 import Computed from './components/Computed.vue'
@@ -23,7 +24,8 @@ watch(isShow, (value: boolean) => {
 </script>
 
 <template>
-  <RefAndReavtive msg="Ref 和 Reavtive 以及 shallowRef shallowReactive" />
+  <RefAndReavtive msg="Ref 和 Reavtive" />
+  <ShallowRefAndShallowReactive />
   <br/>
   <button style="margin-top: 20px;" @click="isShow = !isShow">切换隐藏显示 Lifecycle</button>
   <Lifecycle  v-if="isShow" />

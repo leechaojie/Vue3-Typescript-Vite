@@ -4,6 +4,7 @@ import Life from './components/Life.vue'
 import Setup from './components/Setup.vue'
 import Computed from './components/Computed.vue'
 import Watch from './components/Watch.vue'
+import WatchEffict from './components/watchEffect.vue'
 
 // 测试接收到的 emit
 function testFn(value: string): void {
@@ -24,5 +25,6 @@ function testFn(value: string): void {
   </Setup>
   <Computed />
   <Watch />
+  <WatchEffict />
 </template>
 

@@ -27,7 +27,7 @@ const attrs = useAttrs()
 console.log('attrs', attrs);
 
 function test(): void {
-  emit('add', 'hello')
+  emits('add', 'hello')
 }
 </script>
 

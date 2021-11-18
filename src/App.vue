@@ -7,6 +7,7 @@ import Computed from './components/Computed.vue'
 import Watch from './components/Watch.vue'
 import WatchEffict from './components/watchEffect.vue'
 import Hooks from './components/Hooks.vue'
+import ToRef from './components/ToRef.vue'
 
 // 测试接收到的 emit
 function testFn(value: string): void {
@@ -38,6 +39,7 @@ watch(isShow, (value: boolean) => {
   <Watch />
   <WatchEffict />
   <Hooks />
+  <ToRef/>
 </template>
 
 <style>

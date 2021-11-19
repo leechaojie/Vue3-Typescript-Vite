@@ -12,6 +12,7 @@ import ToRef from './components/ToRef.vue';
 import ToRaw from './components/ToRaw.vue';
 import CustomRef from './components/CustomRef.vue';
 import Provide from './components/Provide.vue';
+import IsRefAndIsReactive from './components/IsRefAndIsReactive.vue';
 
 // 测试接收到的 emit
 function testFn(value: string): void {
@@ -47,6 +48,7 @@ watch(isShow, (value: boolean) => {
 	<ToRaw />
   <CustomRef />
   <Provide />
+  <IsRefAndIsReactive />
 </template>
 
 <style>

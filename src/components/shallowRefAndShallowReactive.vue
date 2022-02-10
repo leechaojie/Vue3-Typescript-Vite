@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { shallowRef, shallowReactive } from 'vue';
 
-// 1 shallowReactive 只能做相应式的一层嵌套
+// 1 shallowReactive 只能做响应式的一层嵌套
 // 如果有一个很深的对象，我们只想要外层的做响应式，就可以使用 shallowReactive
 const person = shallowReactive({
 	firstName: 'Leonardo',
@@ -22,7 +22,7 @@ const person = shallowReactive({
 
 // 2 shallowRef 只能对基础类型进行响应式
 const num = shallowRef(1);
-// 3 shallowRef 不会处理对象类型的响应式，ref 会通过 eactive 转为代理对象
+// 3 shallowRef 不会处理对象类型的响应式，ref 会通过 reactive 转为代理对象
 // 如果有一个对象，后续不会修改对象中的属性，就可以用 shallowRef
 const numObj = shallowRef({
 	x: 1,

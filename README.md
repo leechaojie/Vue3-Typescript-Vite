@@ -12,9 +12,9 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 ## 新组件
 
-- Fragment 一个空标签不会显示在 DOM 上
-- [Teleport](https://v3.cn.vuejs.org/guide/teleport.html#teleport)
-- [Suspense](https://v3.cn.vuejs.org/guide/migration/suspense.html#suspense)
+- [Fragment](https://cn.vuejs.org/guide/extras/rendering-mechanism.html#patch-flags) 一个空标签不会显示在 DOM 上
+- [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html#teleport)
+- [Suspense](https://cn.vuejs.org/guide/built-ins/suspense.html) 试验性功能
 
 ## 移除的Api
 

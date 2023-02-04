@@ -21,3 +21,5 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 - 移除 keyCode 作为 v-on 修饰符，同时不再支持 config.keyCodes
 - 移除 v-on.native (vue2中，引入的组件内加入 @click ，vue会认为这是一个自定义事件，是有加上native才起效果)
 - 移除过滤器 filter
+
+## 其他

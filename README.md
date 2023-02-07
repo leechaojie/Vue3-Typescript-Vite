@@ -16,7 +16,7 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 - [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html#teleport)
 - [Suspense](https://cn.vuejs.org/guide/built-ins/suspense.html) 试验性功能
 
-## 移除的 Api
+## 移除的Api
 
 - 移除 keyCode 作为 v-on 修饰符，同时不再支持 config.keyCodes
 - 移除 v-on.native (vue2中，引入的组件内加入 @click ，vue会认为这是一个自定义事件，是有加上native才起效果)

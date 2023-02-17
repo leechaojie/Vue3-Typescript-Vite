@@ -4,7 +4,6 @@ const point = usePoint()
 
 // hooks 类似于 vue2 的 mixin
 // 优势 复用代码，让setup中的逻辑更清晰易懂
-
 </script>
 
 <template>

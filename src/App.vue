@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import RefAndReavtive from './components/RefAndReavtive.vue';
+import RefAndReactive from './components/RefAndReactive.vue';
 import ShallowRefAndShallowReactive from './components/ShallowRefAndShallowReactive.vue';
 import Lifecycle from './components/Lifecycle.vue';
 import Setup from './components/Setup.vue';
 import Computed from './components/Computed.vue';
 import Watch from './components/Watch.vue';
-import WatchEffict from './components/watchEffect.vue';
+import WatchEffect from './components/WatchEffect.vue';
 import Hooks from './components/Hooks.vue';
 import ToRef from './components/ToRef.vue';
 import ToRaw from './components/ToRaw.vue';
@@ -27,7 +27,7 @@ watch(isShow, (value: boolean) => {
 </script>
 
 <template>
-	<RefAndReavtive msg="Ref 和 Reavtive" />
+	<RefAndReactive msg="Ref 和 Reactive" />
 	<ShallowRefAndShallowReactive />
 	<br />
 	<button style="margin-top: 20px" @click="isShow = !isShow">切换隐藏显示 Lifecycle</button>
@@ -42,7 +42,7 @@ watch(isShow, (value: boolean) => {
 	</Setup>
 	<Computed />
 	<Watch />
-	<WatchEffict />
+	<WatchEffect />
 	<Hooks />
 	<ToRef />
 	<ToRaw />
